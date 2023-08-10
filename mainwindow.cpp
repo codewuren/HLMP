@@ -55,19 +55,23 @@ void MainWindow::PlayButton_Clicked() {
     };
 }
 
+// 开始/恢复播放
 void MainWindow::PlayMusic() {
     currentIndex = ui->playlistWidget->currentRow();
     player->play();
 }
 
+// 暂停播放
 void MainWindow::PauseMusic() {
     player->pause();
 }
 
+// 停止播放
 void MainWindow::StopMusic() {
     player->stop();
 }
 
+// 播放上一首
 void MainWindow::LastMusic() {
     if (dirCheck()) {
         StopMusic();
@@ -78,6 +82,7 @@ void MainWindow::LastMusic() {
     }
 }
 
+// 播放下一首
 void MainWindow::NextMusic() {
     if (dirCheck()) {
         StopMusic();
@@ -88,10 +93,12 @@ void MainWindow::NextMusic() {
     }
 }
 
+// 改变播放时的音量
 void MainWindow::ChangeVolume(int vol) {
     audioOutput->setVolume(float(vol) / 100);
 }
 
+// 打开一个文件夹，并将其中所有的 mp3 文件加入到列表中
 void MainWindow::OpenFileDirectory() {
     dirName = QFileDialog::getExistingDirectory(this, tr("Open Directory"), "", QFileDialog::ShowDirsOnly | QFileDialog::DontResolveSymlinks);
     if (!dirName.isEmpty()) {
@@ -109,26 +116,31 @@ void MainWindow::OpenFileDirectory() {
     }
 }
 
+// 打开单个文件（后期添加）
 void MainWindow::OpenFile() {
     QString fileName = QFileDialog::getOpenFileName(this, tr("Open Music File"), "", tr("Music Files (*.mp3)"));
     // TODO ...
 }
 
+// 改变进度条
 void MainWindow::changeProgress(int value) {
     player->setPosition(value);
 }
 
+// 更新进度条
 void MainWindow::updateProgress(qint64 position) {
     ui->progressSlider->setRange(0, player->duration());
     ui->progressSlider->setValue(position);
 }
 
+// 用户双击列表中的元素时播放相应歌曲
 void MainWindow::musicList_Clicked() {
     ui->playButton->setText("暂停");
     player->setSource(QUrl::fromLocalFile(dirName + "/" + ui->playlistWidget->currentItem()->text()));
     PlayMusic();
 }
 
+// 检测用户是否选择了文件夹
 bool MainWindow::dirCheck() {
     if (dirName.isEmpty()) {
         QMessageBox MBox;
