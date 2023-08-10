@@ -6,53 +6,58 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
+    <width>450</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>HLMP</string>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="autoFillBackground">
+   <bool>true</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QWidget" name="gridLayoutWidget">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <widget class="QWidget" name="buttons" native="true">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
-      <width>801</width>
-      <height>601</height>
+      <x>11</x>
+      <y>500</y>
+      <width>429</width>
+      <height>71</height>
      </rect>
     </property>
-    <layout class="QGridLayout" name="gridLayout">
-     <property name="sizeConstraint">
-      <enum>QLayout::SetMaximumSize</enum>
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>1</y>
+       <width>431</width>
+       <height>82</height>
+      </rect>
      </property>
-     <item row="2" column="3">
-      <widget class="QPushButton" name="nextButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">QPushButton {
-     background-color: red;
- }
-
-QPushButton#onclick {
-	background-color: black;
-}</string>
-       </property>
-       <property name="text">
-        <string>下一首</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="2">
-      <widget class="QPushButton" name="playButton">
-       <property name="styleSheet">
-        <string notr="true"> QPushButton {
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="choosedirButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> QPushButton {
 	padding: 15px 40px;
 	border-radius:  25px;
 	background-color: #29292a;
@@ -67,58 +72,152 @@ QPushButton#onclick {
 	padding-right: 20px;
  }
 </string>
-       </property>
-       <property name="text">
-        <string>播放</string>
-       </property>
-       <property name="default">
-        <bool>false</bool>
-       </property>
-       <property name="flat">
-        <bool>false</bool>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QSlider" name="volumeSlider">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="3">
-      <widget class="QSlider" name="progressSlider">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QTextBrowser" name="PlaySongName"/>
-     </item>
-     <item row="2" column="0" alignment="Qt::AlignRight">
-      <widget class="QPushButton" name="lastButton">
-       <property name="sizePolicy">
-        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-         <horstretch>0</horstretch>
-         <verstretch>0</verstretch>
-        </sizepolicy>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"> QPushButton {
-     background-color: red;
+        </property>
+        <property name="text">
+         <string>文件夹</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="lastButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> QPushButton {
+	padding: 15px 40px;
+	border-radius:  25px;
+	background-color: #29292a;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+ QPushButton:pressed {
+	background-color: #39393a;
+	padding: 15px 40px;
+	border-radius:  25px;
+	padding-left: 20px;
+	padding-right: 20px;
  }
 </string>
-       </property>
-       <property name="text">
-        <string>上一首</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QListWidget" name="muisicListWidget"/>
-     </item>
-    </layout>
+        </property>
+        <property name="text">
+         <string>上一首</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="playButton">
+        <property name="styleSheet">
+         <string notr="true"> QPushButton {
+	padding: 15px 40px;
+	border-radius:  15px;
+	background-color: #29292a;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+ QPushButton:pressed {
+	background-color: #39393a;
+	padding: 15px 40px;
+	border-radius:  25px;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+</string>
+        </property>
+        <property name="text">
+         <string>播放</string>
+        </property>
+        <property name="default">
+         <bool>false</bool>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="nextButton">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"> QPushButton {
+	padding: 15px 40px;
+	border-radius:  25px;
+	background-color: #29292a;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+ QPushButton:pressed {
+	background-color: #39393a;
+	padding: 15px 40px;
+	border-radius:  25px;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+</string>
+        </property>
+        <property name="text">
+         <string>下一首</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QListWidget" name="playlistWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>431</width>
+      <height>461</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+   </widget>
+   <widget class="QSlider" name="volumeSlider">
+    <property name="geometry">
+     <rect>
+      <x>11</x>
+      <y>572</y>
+      <width>84</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="maximum">
+     <number>100</number>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="QSlider" name="progressSlider">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>480</y>
+      <width>431</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true"/>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
    </widget>
   </widget>
   <action name="action">

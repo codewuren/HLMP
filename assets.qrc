@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/add_dir.png</file>
+        <file>assets/last.png</file>
+        <file>assets/next.png</file>
+        <file>assets/pause.png</file>
+        <file>assets/play.png</file>
+    </qresource>
+</RCC>

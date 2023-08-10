@@ -7,6 +7,7 @@
 #include <QAudioOutput>
 #include <QStandardItem>
 #include <QUrl>
+#include <QMessageBox>
 #include <Qstring>
 
 QT_BEGIN_NAMESPACE
@@ -33,11 +34,14 @@ private slots:
     void OpenFile();
     void changeProgress(int value);
     void updateProgress(qint64 position);
+    void musicList_Clicked();
+    bool dirCheck();
 
 private:
     Ui::MainWindow *ui;
     QMediaPlayer *player;
     QAudioOutput *audioOutput;
     int currentIndex;
+    QString dirName = "";
 };
 #endif // MAINWINDOW_H
