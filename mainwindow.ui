@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QWidget" name="gridLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>801</width>
+      <height>601</height>
+     </rect>
+    </property>
+    <layout class="QGridLayout" name="gridLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetMaximumSize</enum>
+     </property>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="nextButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton {
+     background-color: red;
+ }
+
+QPushButton#onclick {
+	background-color: black;
+}</string>
+       </property>
+       <property name="text">
+        <string>下一首</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="2">
+      <widget class="QPushButton" name="playButton">
+       <property name="styleSheet">
+        <string notr="true"> QPushButton {
+	padding: 15px 40px;
+	border-radius:  25px;
+	background-color: #29292a;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+ QPushButton:pressed {
+	background-color: #39393a;
+	padding: 15px 40px;
+	border-radius:  25px;
+	padding-left: 20px;
+	padding-right: 20px;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>播放</string>
+       </property>
+       <property name="default">
+        <bool>false</bool>
+       </property>
+       <property name="flat">
+        <bool>false</bool>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QSlider" name="volumeSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QSlider" name="progressSlider">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QTextBrowser" name="PlaySongName"/>
+     </item>
+     <item row="2" column="0" alignment="Qt::AlignRight">
+      <widget class="QPushButton" name="lastButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"> QPushButton {
+     background-color: red;
+ }
+</string>
+       </property>
+       <property name="text">
+        <string>上一首</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="3">
+      <widget class="QListWidget" name="muisicListWidget"/>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+  <action name="action">
+   <property name="text">
+    <string>​打开</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
