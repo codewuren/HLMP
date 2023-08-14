@@ -22,7 +22,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void PlayButton_Clicked();
     void PlayMusic();
     void PauseMusic();
     void StopMusic();

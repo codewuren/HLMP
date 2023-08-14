@@ -23,7 +23,7 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     MainWindow::ChangeVolume(DefaultVolume);
 
     // 绑定
-    connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::PlayButton_Clicked);
+    connect(ui->playButton, &QPushButton::clicked, this, &MainWindow::PlayMusic);
     connect(ui->nextButton, &QPushButton::clicked, this, &MainWindow::NextMusic);
     connect(ui->lastButton, &QPushButton::clicked, this, &MainWindow::LastMusic);
     connect(ui->choosedirButton, &QPushButton::clicked, this, &MainWindow::OpenFileDirectory);
@@ -37,7 +37,8 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::PlayButton_Clicked() {
+// 开始/恢复播放
+void MainWindow::PlayMusic() {
     switch(player->playbackState()) {
     case QMediaPlayer::PlaybackState::PlayingState:
         if(dirCheck()) {
@@ -48,24 +49,21 @@ void MainWindow::PlayButton_Clicked() {
     case QMediaPlayer::PlaybackState::PausedState:
         if(dirCheck()) {
             ui->playButton->setText("暂停");
-            PlayMusic();
+            player->play();
+            currentIndex = ui->playlistWidget->currentRow();
         }
         break;
     case QMediaPlayer::PlaybackState::StoppedState:
         if(dirCheck()) {
             player->setSource(QUrl::fromLocalFile(dirName + "/" + ui->playlistWidget->currentItem()->text()));
-            PlayMusic();
+            ui->playButton->setText("暂停");
+            player->play();
+            currentIndex = ui->playlistWidget->currentRow();
         }
         break;
     default:
         break;
     };
-}
-
-// 开始/恢复播放
-void MainWindow::PlayMusic() {
-    player->play();
-    currentIndex = ui->playlistWidget->currentRow();
 }
 
 // 暂停播放
@@ -165,3 +163,4 @@ bool MainWindow::dirCheck() {
     }
     else return true;
 }
+
