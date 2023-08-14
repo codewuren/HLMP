@@ -142,6 +142,17 @@ void MainWindow::updateProgress(qint64 position) {
         NextMusic();
         ui->progressSlider->setValue(0);
     }
+    this->setWindowTitle("HLMP 音量："
+                         + QString::number(audioOutput->volume() * 100)
+                         + "% 进度："
+                         + QString::number(int(ui->progressSlider->value() / 1000 / 60))
+                         + ":"
+                         + QString::number(int(ui->progressSlider->value() / 1000 % 60))
+                         + "/"
+                         + QString::number(int(player->duration() / 1000 / 60))
+                         + ":"
+                         + QString::number(int(player->duration() / 1000 % 60))
+                         );
 }
 
 // 用户双击列表中的元素时播放相应歌曲

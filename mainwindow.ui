@@ -143,6 +143,19 @@ QPushButton:pressed {
        </property>
       </widget>
      </item>
+     <item row="5" column="0">
+      <spacer name="rightSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
      <item row="5" column="4">
       <widget class="QPushButton" name="nextButton">
        <property name="sizePolicy">
@@ -187,16 +200,10 @@ QPushButton:pressed {
        </property>
       </widget>
      </item>
-     <item row="6" column="1" colspan="4">
-      <widget class="QSlider" name="volumeSlider">
+     <item row="0" column="0" rowspan="2" colspan="6">
+      <widget class="QListWidget" name="playlistWidget">
        <property name="styleSheet">
         <string notr="true"/>
-       </property>
-       <property name="maximum">
-        <number>100</number>
-       </property>
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
@@ -247,23 +254,19 @@ QPushButton:pressed {
        </property>
       </spacer>
      </item>
-     <item row="5" column="0">
-      <spacer name="rightSpacer">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
-       </property>
-       <property name="sizeHint" stdset="0">
-        <size>
-         <width>40</width>
-         <height>20</height>
-        </size>
-       </property>
-      </spacer>
-     </item>
-     <item row="0" column="0" rowspan="2" colspan="6">
-      <widget class="QListWidget" name="playlistWidget">
+     <item row="6" column="1" colspan="4">
+      <widget class="QSlider" name="volumeSlider">
        <property name="styleSheet">
         <string notr="true"/>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="pageStep">
+        <number>5</number>
+       </property>
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
        </property>
       </widget>
      </item>
