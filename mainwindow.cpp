@@ -6,6 +6,9 @@
 MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWindow) {
     ui->setupUi(this);
 
+    // 窗口自适应
+    this->setCentralWidget(ui->layout);
+
     // 创建一个播放器对象
     player = new QMediaPlayer(this);
 
@@ -37,12 +40,16 @@ MainWindow::~MainWindow() {
 void MainWindow::PlayButton_Clicked() {
     switch(player->playbackState()) {
     case QMediaPlayer::PlaybackState::PlayingState:
-        ui->playButton->setText("播放");
-        PauseMusic();
+        if(dirCheck()) {
+            ui->playButton->setText("播放");
+            PauseMusic();
+        }
         break;
     case QMediaPlayer::PlaybackState::PausedState:
-        ui->playButton->setText("暂停");
-        PlayMusic();
+        if(dirCheck()) {
+            ui->playButton->setText("暂停");
+            PlayMusic();
+        }
         break;
     case QMediaPlayer::PlaybackState::StoppedState:
         if(dirCheck()) {
@@ -57,8 +64,8 @@ void MainWindow::PlayButton_Clicked() {
 
 // 开始/恢复播放
 void MainWindow::PlayMusic() {
-    currentIndex = ui->playlistWidget->currentRow();
     player->play();
+    currentIndex = ui->playlistWidget->currentRow();
 }
 
 // 暂停播放
