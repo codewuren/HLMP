@@ -117,6 +117,7 @@ void MainWindow::OpenFileDirectory() {
         for (int i = 0; i < musicNames.size(); i++) {
             ui->playlistWidget->addItem(musicNames[i]);
         }
+        ui->playlistWidget->setCurrentRow(0);
     }
     else {
         dirName = "";
@@ -138,6 +139,11 @@ void MainWindow::changeProgress(int value) {
 void MainWindow::updateProgress(qint64 position) {
     ui->progressSlider->setRange(0, player->duration());
     ui->progressSlider->setValue(position);
+    // 播放完自动下一首
+    if (ui->progressSlider->value() == player->duration()){
+        NextMusic();
+        ui->progressSlider->setValue(0);
+    }
 }
 
 // 用户双击列表中的元素时播放相应歌曲
